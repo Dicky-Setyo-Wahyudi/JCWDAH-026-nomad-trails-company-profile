@@ -1,7 +1,7 @@
-function App() {
-  return <>
-    return <h1>OceanCast Adventure & Gear</h1>;
-  </>;
+import AppRoutes from "./routes/AppRoutes";
+
+const App = () => {
+    return <AppRoutes />;
 }
 
 export default App;
