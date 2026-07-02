@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import PageTransition from "../../components/common/PageTransition";
 import { getTeams } from "../../services/team.service";
 import type { Team } from "../../types/team";
-import {Search, Star, MapPin, Mail, Phone, ArrowRight} from "lucide-react";
+import {Search, Star, MapPin, Mail, Phone} from "lucide-react";
 
 const TeamPage = () => {
 	const [teams, setTeams] = useState<Team[]>([]);
