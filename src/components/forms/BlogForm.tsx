@@ -18,8 +18,7 @@ const BlogForm = ({ initialValues, onSubmit }: Props) => {
                 }
             }}
         >
-            {({isSubmitting, setFieldValue, values, errors}) => {
-                console.log("Formik Errors:", errors);
+            {({isSubmitting, setFieldValue, values}) => {
 
                 return (
                     <Form className="space-y-6 bg-white rounded-3xl shadow-xl p-10">
@@ -51,10 +50,9 @@ const BlogForm = ({ initialValues, onSubmit }: Props) => {
                                     if (!file) return;
                                     try {
                                         const url = await uploadImage(file);
-                                        console.log("Uploaded Image:", url);
                                         setFieldValue("image", url);
-                                    } catch (err) {
-                                        console.error(err);
+                                    } catch {
+                                        alert("Failed to upload image.");
                                     }
                                 }}
                             />
@@ -79,7 +77,7 @@ const BlogForm = ({ initialValues, onSubmit }: Props) => {
 
                         <div>
                             <label className="font-semibold block mb-2"> Status </label>
-                            
+
                             <label className="mr-5">
                                 <Field type="radio" name="status" value="Published"/>
                                 Published

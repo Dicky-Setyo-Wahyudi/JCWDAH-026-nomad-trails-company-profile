@@ -20,57 +20,18 @@ const CreateBlog = () => {
         views: 0
     };
 
-    // const handleSubmit = async (values: any) => {
-    //     try {
-
-    //         values.slug = values.title
-    //             .toLowerCase()
-    //             .replace(/\s+/g, "-");
-
-    //         values.author = "Admin";
-
-    //         values.readTime =
-    //             Math.ceil(values.content.split(" ").length / 200) +
-    //             " min read";
-
-    //         values.views = 0;
-
-    //         await createBlog(values);
-
-    //         toast.success("Blog created successfully!");
-
-    //         navigate("/blog");
-
-    //     } catch (error) {
-
-    //         toast.error("Failed to create blog.");
-
-    //     }
-    // };
     const handleSubmit = async (values: any) => {
     try {
-        values.slug = values.title
-            .toLowerCase()
-            .replace(/\s+/g, "-");
-
+        values.slug = values.title.toLowerCase().replace(/\s+/g, "-");
         values.author = "Admin";
-
-        values.readTime =
-            Math.ceil(values.content.split(" ").length / 200) +
-            " min read";
-
+        values.readTime = Math.ceil(values.content.split(" ").length / 200) + " min read";
         values.views = 0;
-
         console.log("Sending data:", values);
-
         await createBlog(values);
-
         toast.success("Blog created successfully!");
-
         navigate("/blog");
     } catch (error: any) {
         console.error("Create Error:", error);
-
         toast.error(
             error?.message ??
             JSON.stringify(error)
